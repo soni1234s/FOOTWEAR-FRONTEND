@@ -73,34 +73,31 @@ export default function SearchByBrand(props) {
         <ShoppingCart num={number} />
       </div>
       <div class="row">
-        {brandData.map((data) => {
-          if (data.type === props.location.state.name) {
+        {brandData.map((detail) => {
+          if (detail.type === props.location.state.name) {
             return (
-              <div class="col-sm-3 text-center">
-                <div class="card" style={{ width: "18rem;" }}>
-                  <img class="card-img-top" src={data.image} alt="" />
-
-                  <div class="card-body">
-                    <h5 class="card-title">{data.title}</h5>
-
-                    <h6>{data.price}</h6>
-
-                    <button
-                      id="btn1"
-                      style={{
-                        marginRight: "3px",
-                        borderColor: "skyblue",
-                        backgroundColor: "transparent",
-                      }}
-                      onClick={() => {
-                        AddtoCart(data);
-                      }}
-                    >
-                      ADD TO CART
-                    </button>
-                  </div>
+              <div class="card" >
+                  
+                  <img
+                    class="card-img-top img-thumbnail" 
+                    src={detail.image}
+                    style={{width:"60%"}}
+                    alt=""
+                  />
+               
+                <div class="card-body">
+                  
+                    <h5 class="card-title">{detail.title}</h5>
+                  
+                  <h6>{detail.price}</h6>
+                  <div className="btn1">
+                  <button id="btn1" style={{ marginRight: "3px", borderColor: "skyblue", backgroundColor: "transparent"}} onClick={() => {AddtoCart(detail)}}>
+                    ADD TO CART
+                  </button>
+                </div>
                 </div>
               </div>
+           
             );
           }
 
