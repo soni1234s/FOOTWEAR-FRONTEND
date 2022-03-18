@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import brandData from "../brand.json";
-import { sendData } from "../util";
 import axios from "axios";
 import ShoppingCart from "./ShoppingKartItem";
 import { useCookies } from 'react-cookie';
@@ -48,18 +47,18 @@ export default function SearchByBrand(props) {
       "price": `${detail.price}`
     }
 
-    if(sendData(data))return true;
+    axios.post("https://footwear-backend.herokuapp.com/cart", data);
+    return true;
   }
   
   const AddtoCart = (detail) => {
         
   
     const axiosgetData = async () => {
-            
-      const d = await axios.get('http://localhost:5000/cart');
       
       if(send(detail)){
-      setNumber(d.data.length+1)}
+         setNumber(number+1);
+      }
       
     }
     axiosgetData();
