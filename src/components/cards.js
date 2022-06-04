@@ -11,7 +11,7 @@ function Cards({setNum}) {
       
     const axiosgetData = async () => {
             
-      const d = await axios.get('https://footwear-backend.herokuapp.com/cart');
+      const d = await axios.get('http://localhost:5000/cart');
       
 
       if(send(detail)){
@@ -37,7 +37,7 @@ function Cards({setNum}) {
       "price": `${detail.price}`
     }
 
-    axios.post("https://footwear-backend.herokuapp.com/cart", data);
+    axios.post("http://localhost:5000/cart", data);
     return true;
   }
 

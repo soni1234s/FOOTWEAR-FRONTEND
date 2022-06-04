@@ -12,7 +12,7 @@ function Mens() {
   useEffect(() => {
     const axiosgetData = async () => {
             
-      const d = await axios.get('https://footwear-backend.herokuapp.com/cart');      
+      const d = await axios.get('http://localhost:5000/cart');      
       
       var n = 0;
       for(var i=0; i<d.data.length; i++){
@@ -42,7 +42,7 @@ function Mens() {
       "price": `${detail.price}`
     }
 
-    axios.post("https://footwear-backend.herokuapp.com/cart", data);
+    axios.post("http://localhost:5000/cart", data);
     return true;
   }
 

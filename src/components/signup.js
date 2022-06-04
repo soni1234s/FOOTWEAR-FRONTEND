@@ -58,35 +58,37 @@ function LoginResume() {
        history.push("/")
     }
     else{
-    axios.post("https://footwear-backend.herokuapp.com/otp", postOtp, axiosConfig);
-    Swal.fire({
-      text: 'OTP HAS BEEN SENT TO YOUR REGISTERED EMAIL ID',
-      html: `<input type="text" id="login" class="swal2-input" placeholder="Enter Otp">`,
-      confirmButtonText: 'Verify',
-      preConfirm: () => {
-        const login = Swal.getPopup().querySelector('#login').value
-        if (!login) {
-          Swal.showValidationMessage(`Please enter Otp`)
-        }else if(login!==user.otp){
-          Swal.showValidationMessage(`Please fill Correct otp`)
-        }
-        return { login: login }
-      }
-    }).then((result) => {
+    // axios.post("http://localhost:5000/otp", postOtp, axiosConfig);
+    // Swal.fire({
+    //   text: 'OTP HAS BEEN SENT TO YOUR REGISTERED EMAIL ID',
+    //   html: `<input type="text" id="login" class="swal2-input" placeholder="Enter Otp">`,
+    //   confirmButtonText: 'Verify',
+    //   preConfirm: () => {
+    //     const login = Swal.getPopup().querySelector('#login').value
+    //     if (!login) {
+    //       Swal.showValidationMessage(`Please enter Otp`)
+    //     }else if(login!==user.otp){
+    //       Swal.showValidationMessage(`Please fill Correct otp`)
+    //     }
+    //     return { login: login }
+    //   }
+    // }).then((result) => {
        
-      console.log(result);
+    //   console.log(result);
       
-      if(result.isDismissed === true){
-        history.push("/");
-      }
-       else{ 
-         if (result.value.login === user.otp) {
-          postData();
-        }
-      } 
+    //   if(result.isDismissed === true){
+    //     history.push("/");
+    //   }
+    //    else{ 
+    //      if (result.value.login === user.otp) {
+    //       postData();
+    //     }
+    //   } 
      
 
-    })
+    // })
+
+    
 
   }
   }
@@ -106,7 +108,7 @@ function LoginResume() {
 
       
       //console.log("i am in");
-      const resp = await fetch("https://footwear-backend.herokuapp.com/", {
+      const resp = await fetch("http://localhost:5000/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -223,7 +225,7 @@ function LoginResume() {
                   type="submit"
                   class="button"
                   value="Sign Up"
-                  onClick={alertBox}
+                  onClick={postData}
                 />
               </div>
               <div class="hr"></div>

@@ -43,7 +43,7 @@ export default function Signin() {
         window.alert("please fill all feilds.")
     }else{
 
-      const resp = await fetch("https://footwear-backend.herokuapp.com/signin", {
+      const resp = await fetch("http://localhost:5000/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

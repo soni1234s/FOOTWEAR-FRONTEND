@@ -14,7 +14,7 @@ function Cart() {
 
   useEffect(() => {
     const axiosgetData = async () => {
-      const d = await axios.get("https://footwear-backend.herokuapp.com/cart");
+      const d = await axios.get("http://localhost:5000/cart");
     
           for(let i=0; i<d.data.length; i++){
             if(d.data[i].username === cookies.user){
@@ -40,9 +40,9 @@ function Cart() {
   const deleteData = async (detail) => {
     const id = detail._id;
     console.log(id);
-    axios.delete(`https://footwear-backend.herokuapp.com/cart/${id}`);
+    axios.delete(`http://localhost:5000/cart/${id}`);
 
-    const remainData = await axios.get("https://footwear-backend.herokuapp.com/cart");
+    const remainData = await axios.get("http://localhost:5000/cart");
     
     setData(remainData.data);
     console.log(remainData.data);

@@ -167,7 +167,7 @@ function Payment(props) {
           text: "Your Order Had Been Placed, You will Be Redirected to Home Page",
           confirmButtonText: "Cool",
         }).then((res) => {
-          axios.post("https://footwear-backend.herokuapp.com/otp", postData, axiosConfig)
+          // axios.post("http://localhost:5000/otp", postData, axiosConfig)
         
               history.push("/homepage")
             });
